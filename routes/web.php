@@ -25,5 +25,9 @@ Route::get('/user', function(){
 	echo 'oh hello user';
 })->middleware(['auth', 'role:user|admin']);
 
+Route::get('/role', function(){
+	return view('role');
+})->middleware(['auth']);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
