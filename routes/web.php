@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+
+
+Route::get('/admin', function(){
+	echo 'oh hello admin';
+})->middleware(['auth', 'role:admin']);
+
+Route::get('/user', function(){
+	echo 'oh hello user';
+})->middleware(['auth', 'role:user|admin']);
+
+
+Route::get('/home', 'HomeController@index')->name('home');
